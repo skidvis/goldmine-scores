@@ -11,16 +11,20 @@ const App = {
     watch: {
     },
     methods: {
-        isLoaded(){
+        isLoaded(){            
             this.getJson();
             setTimeout(()=>{ this.getJson() }, 10000);
         },
         getJson(){
             axios.get(this.url)
                 .then((response)=>{
-                    this.results = response.data;
+                    console.log(this.$refs.resultsTable);
+                    this.results = response.data;      
+                    Vue.nextTick(()=>{
+                        $(this.$refs.resultsTable).DataTable();
+                    })              
                 })
-                .catch((error)=>{this.OnError(error)});
+                .catch((error)=>{console.log(error)});
         },
         formatScore(result){
             let timeB = this.formatTime(result.score);
