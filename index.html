@@ -25,7 +25,7 @@
         </div>
         <div class="row" id="app">            
             <ul v-if="results !== null" style="list-style-type: decimal;">
-                <li v-for="result in results">{{result.name}} - {{formatScore(result)}}</li>
+                <li v-for="result in results"><b>{{result.name}}</b><br />{{formatScore(result)}}</li>
             </ul>
         </div>
         <div style="text-align: center;">
