@@ -1,0 +1,74 @@
+.section{
+    text-align: center;
+}
+
+.mint-template ul{
+    padding:0;
+    margin: 0;
+}
+
+.mint-template ul li, #arena-section ul li{
+    list-style-type: none;
+}
+
+.gray-text, .gray-text a{
+    color: #aaa;
+}
+
+#theCard{
+    position: relative;
+}
+
+#canv{
+    width: 334px;
+    height: 50px;
+}
+
+img {
+    max-width: 400px;
+    max-height: 600px;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.desc{
+    position: absolute;
+    top: 74%;
+    width: 78%;
+    left: 10%;
+    overflow-wrap: break-word;
+    font-weight: bold;
+    text-align: center;
+}
+
+.number-spot{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+}
+
+.sj-logo{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+}
+
+.number-text{
+    width: 40px;
+    position: absolute;
+    bottom: 16px;
+    right: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
