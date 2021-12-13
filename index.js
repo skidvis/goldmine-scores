@@ -12,6 +12,10 @@ const App = {
     },
     methods: {
         isLoaded(){
+            this.getJson();
+            setTimeout(()=>{ this.getJson() }, 10000);
+        },
+        getJson(){
             axios.get(this.url)
                 .then((response)=>{
                     this.results = response.data;
