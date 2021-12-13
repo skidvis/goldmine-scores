@@ -2,7 +2,8 @@ const App = {
     data() {
       return {
           url: 'https://highscore.everdragons.com/players.json',
-          results: null
+          results: null, 
+          reloads: '.'
       }
     },
     mounted(){
@@ -13,7 +14,6 @@ const App = {
     methods: {
         isLoaded(){            
             this.getJson();
-            setTimeout(()=>{ this.getJson() }, 10000);
         },
         getJson(){
             axios.get(this.url)
@@ -22,7 +22,11 @@ const App = {
                     this.results = response.data;      
                     Vue.nextTick(()=>{
                         $(this.$refs.resultsTable).DataTable();
-                    })              
+                    });
+                    setTimeout(()=>{ 
+                        this.getJson(); 
+                        this.reloads = this.reloads == '.' ? '..' : '.';
+                    }, 10000);              
                 })
                 .catch((error)=>{console.log(error)});
         },
