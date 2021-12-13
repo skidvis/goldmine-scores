@@ -2,6 +2,8 @@
     text-align: center;
 }
 
+li:nth-child(even) {background-color: #f2f2f2;}
+
 .mint-template ul{
     padding:0;
     margin: 0;
