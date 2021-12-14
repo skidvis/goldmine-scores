@@ -3,8 +3,9 @@ const App = {
       return {
           url: 'https://highscore.everdragons.com/players.json',
           results: null, 
-          reloads: '.',
-          datatable: null
+          datatable: null,
+          timer: 10,
+          isLoading: false
       }
     },
     mounted(){
@@ -15,8 +16,23 @@ const App = {
     methods: {
         isLoaded(){            
             this.getJson();
+            this.countDown();
+        },
+        countDown(){
+            if(this.isLoading === true) return;
+
+            setTimeout(()=>{ 
+                this.timer--;
+                if(this.timer < 0){
+                    this.getJson();
+                    this.timer = 10;
+                }
+
+                this.countDown();
+            }, 1000);
         },
         getJson(){
+            this.isLoading = true;
             axios.get(this.url)
                 .then((response)=>{
                     this.results = response.data;      
@@ -24,12 +40,15 @@ const App = {
                         if(this.datatable === null) this.datatable = $(this.$refs.resultsTable).DataTable();
                         if(this.datatable !== null) this.datatable.draw();
                     });
-                    setTimeout(()=>{ 
-                        this.getJson(); 
-                        this.reloads = this.reloads == '.' ? '..' : '.';
-                    }, 10000);              
+                                  
                 })
-                .catch((error)=>{console.log(error)});
+                .catch((error)=>{
+                    console.log(error)
+                })
+                .finally(()=>{
+                    this.isLoading = false;
+                    this.countDown();
+                });
         },
         formatScore(result){
             let timeB = this.formatTime(result.score);

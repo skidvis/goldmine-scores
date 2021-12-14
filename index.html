@@ -29,7 +29,7 @@
         </div>
         <div class="row" id="app">
             <div v-if="results !== null">
-                <h5 style="text-align: center;">{{results.length}} total players. {{Math.floor(results.length/2)}} eggs up for grabs{{reloads}}</h5>
+                <h5 style="text-align: center;">{{results.length}} total players. {{Math.floor(results.length/2)}} eggs up for grabs! Refreshing in {{timer}} seconds.</h5>
                 <table ref="resultsTable" class="display" data-page-length="100">
                     <thead>
                         <tr>
