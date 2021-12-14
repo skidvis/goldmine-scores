@@ -21,8 +21,8 @@ const App = {
                 .then((response)=>{
                     this.results = response.data;      
                     Vue.nextTick(()=>{
-                        if(this.datatable !== null) this.datatable.destroy();
-                        this.datatable = $(this.$refs.resultsTable).DataTable();
+                        if(this.datatable === null) this.datatable = $(this.$refs.resultsTable).DataTable();
+                        if(this.datatable !== null) this.datatable.draw();
                     });
                     setTimeout(()=>{ 
                         this.getJson(); 
