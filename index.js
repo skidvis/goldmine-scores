@@ -1,7 +1,7 @@
 const App = {
     data() {
       return {
-          url: 'players.json',
+          url: 'highscore.json',
           results: null, 
           datatable: null,
           timer: 10,

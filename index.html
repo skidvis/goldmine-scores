@@ -41,7 +41,7 @@
                     <tbody>
                         <tr v-for="result, index in results">
                             <td style="font-weight: bold;" v-bind:style="index < goal ? 'color: green;' : 'color: red;'">{{str_pad_left(index+1, '0', 3)}}:</td>
-                            <td><b>{{result.name}}</b></td>
+                            <td><b>{{result.username}}</b></td>
                             <td>{{formatScore(result)}}</td>
                         </tr>
                     </tbody>
