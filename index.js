@@ -5,7 +5,8 @@ const App = {
           results: null, 
           datatable: null,
           timer: 10,
-          isLoading: false
+          isLoading: false, 
+          goal: 0
       }
     },
     mounted(){
@@ -36,6 +37,7 @@ const App = {
             axios.get(this.url)
                 .then((response)=>{
                     this.results = response.data;      
+                    this.goal = Math.floor(this.results.length/2);
                     Vue.nextTick(()=>{
                         if(this.datatable === null) this.datatable = $(this.$refs.resultsTable).DataTable();
                         if(this.datatable !== null) this.datatable.draw();

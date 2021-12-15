@@ -29,7 +29,7 @@
         </div>
         <div class="row" id="app">
             <div v-if="results !== null">
-                <h5 style="text-align: center;">{{results.length}} total players. {{Math.floor(results.length/2)}} eggs up for grabs!</h5>
+                <h5 style="text-align: center;">{{results.length}} total players. {{goal}} eggs up for grabs!</h5>
                 <table ref="resultsTable" class="display" data-page-length="100">
                     <thead>
                         <tr>
@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="result, index in results">
-                            <td>{{str_pad_left(index+1, '0', 3)}}:</td>
+                            <td style="font-weight: bold;" v-bind:style="index < goal ? 'color: green;' : 'color: red;'">{{str_pad_left(index+1, '0', 3)}}:</td>
                             <td><b>{{result.name}}</b></td>
                             <td>{{formatScore(result)}}</td>
                         </tr>
