@@ -1,7 +1,7 @@
 const App = {
     data() {
       return {
-          url: 'https://highscore.everdragons.com/players.json',
+          url: 'players.json',
           results: null, 
           datatable: null,
           timer: 10,
