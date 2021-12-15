@@ -47,7 +47,7 @@ const App = {
                 })
                 .finally(()=>{
                     this.isLoading = false;
-                    this.countDown();
+                    //this.countDown();
                 });
         },
         formatScore(result){
