@@ -37,7 +37,7 @@ const App = {
             axios.get(this.url)
                 .then((response)=>{
                     this.results = response.data;      
-                    this.goal = Math.floor(this.results.length/2);
+                    this.goal = 196;//Math.floor(this.results.length/2);
                     Vue.nextTick(()=>{
                         if(this.datatable === null) this.datatable = $(this.$refs.resultsTable).DataTable();
                         if(this.datatable !== null) this.datatable.draw();
