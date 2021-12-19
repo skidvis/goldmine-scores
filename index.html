@@ -36,6 +36,7 @@
                             <th>Position</th>
                             <th>Name</th>
                             <th>Time</th>
+                            <th>Bonus NFT</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,7 @@
                             <td style="font-weight: bold;" v-bind:style="index < goal ? 'color: green;' : 'color: red;'">{{str_pad_left(index+1, '0', 3)}}:</td>
                             <td><b>{{result.username}}</b></td>
                             <td>{{formatScore(result)}}</td>
+                            <td><a v-bind:href="'https://opensea.io/assets/matic/0x1955ccbeb9cf1db1cef28a03edf826dcb3696841/' + (index+1)" target="new">NFT</a></td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -50,6 +52,7 @@
                             <th>Position</th>
                             <th>Name</th>
                             <th>Time</th>
+                            <th>Bonus NFT</th>
                         </tr>
                     </tfoot>
                 </table>
